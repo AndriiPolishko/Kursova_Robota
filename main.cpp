@@ -8,19 +8,31 @@ vector<vector<int>> matrixGeneator();
 void matrOut(const vector<vector<int>> &);
 vector<int> fromMatrToArr(vector<vector<int>> matrix);
 void arrOut(vector<int>);
-bool matrixValidator(vector<int>);
+bool matrixValidator(vector<vector<int>> );
 int numberOfInversions(vector<int> matrix);
 
 ////////////////////////////////////////////
 int main()
 {
-    vector<vector<int>> matrix = {{1,8,2},
-                                  {0,4,3},
-                                  {7,6,5}};
+    vector<vector<int>> matrix = matrixGeneator();
     matrOut(matrix);
-    vector<int> arr = fromMatrToArr(matrix);
-    int inv = numberOfInversions(arr);
-    cout<<inv;
+    bool res = matrixValidator(matrix);
+    char choice;
+
+    if(res == false){
+        cout<<"This puzzle is unsolvable.\nPrint 'Y' if you want to generate new puzzle.\n";
+    cin>>choice;
+    if(choice=='Y')
+    {
+        do
+            {
+            matrix = matrixGeneator();
+            res = matrixValidator(matrix);
+            }
+        while(res== false);
+    }
+    cout<<"\nYour new puzzle : ";
+    matrOut(matrix);}
     return 0;
 }
 ////////////////////////////////////////////
@@ -79,10 +91,14 @@ void arrOut(vector<int>arr)
         cout<<arr[i]<<" ";
     cout<<endl;
 }
-//bool matrixValidator(vector<int> matrix)
-//{
-//
-//}
+bool matrixValidator(vector<vector<int>> matrix)
+{
+    vector<int> arr = fromMatrToArr(matrix);
+    if(numberOfInversions(arr)%2==0)
+        return true;
+    else
+        return false;
+}
 int numberOfInversions(vector<int> arr)
 {
     int inv=0;

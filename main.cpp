@@ -3,18 +3,24 @@
 #include <algorithm>
 #include <ctime>
 using namespace  std;
+
 vector<vector<int>> matrixGeneator();
 void matrOut(const vector<vector<int>> &);
 vector<int> fromMatrToArr(vector<vector<int>> matrix);
 void arrOut(vector<int>);
-bool matrixValidator(vector<vector<int>>);
+bool matrixValidator(vector<int>);
+int numberOfInversions(vector<int> matrix);
+
 ////////////////////////////////////////////
 int main()
 {
-    vector<vector<int>> matrix = matrixGeneator();
+    vector<vector<int>> matrix = {{1,8,2},
+                                  {0,4,3},
+                                  {7,6,5}};
     matrOut(matrix);
     vector<int> arr = fromMatrToArr(matrix);
-
+    int inv = numberOfInversions(arr);
+    cout<<inv;
     return 0;
 }
 ////////////////////////////////////////////
@@ -73,7 +79,18 @@ void arrOut(vector<int>arr)
         cout<<arr[i]<<" ";
     cout<<endl;
 }
-//bool matrixValidator(vector<vector<int>> matrix)
+//bool matrixValidator(vector<int> matrix)
 //{
 //
 //}
+int numberOfInversions(vector<int> arr)
+{
+    int inv=0;
+    for(size_t i = 0;i<arr.size()-1;i++)
+
+        for(size_t j = i+1;j<arr.size();j++)
+
+            if (arr[j] && arr[i] && arr[i] > arr[j]) inv++;
+
+    return inv;
+}

@@ -3,15 +3,8 @@
 #include <algorithm>
 #include <ctime>
 #include <list>
-
+#include "PuzzleCreation.h"
 using namespace  std;
-
-vector<vector<int>> matrixGeneator();
-void matrOut(const vector<vector<int>> &);
-vector<int> fromMatrToArr(const vector<vector<int>> &);
-void arrOut(const vector<int> &);
-bool matrixValidator(const vector<vector<int>> &);
-int numberOfInversions(const vector<int> &);
 
 struct Puzzle
 {
@@ -24,9 +17,8 @@ const vector<int> SOLVED = { 1,2,3,4,5,6,7,8,0 };
 const vector<int> F_ANC = {0,0,0,0,0,0,0,0};
 vector<Puzzle> route;
 
-
 class node
-        {
+{
     vector<int> curState;
     int gap;
     //check where gap is curently is
@@ -69,7 +61,7 @@ public:
 
     //function to get the path to the result state
     void path();
-        };
+};
 
 
 int main()
@@ -79,14 +71,14 @@ int main()
     if(!res)
     {
         do
-            {
+        {
             matrix = matrixGeneator();
             res = matrixValidator(matrix);
-            }
+        }
         while(!res);
     }
     //puzzle that can be solved : {2,5,3,1,0,7,4,8,6} , {2,8,4,1,0,3,7,6,5}
-    vector<int> arr = fromMatrToArr(matrix);
+    vector<int> arr = {2,5,3,1,0,7,4,8,6};
     node test(arr);
     test.BFS();
     cout<<endl<<"Steps to solution :";
@@ -94,73 +86,6 @@ int main()
     return 0;
 }
 
-void matrOut(const vector<vector<int>> &matrix)
-{
-    cout<<endl;
-    for(size_t i = 0;i<matrix.size();i++){
-        for(size_t j = 0;j<matrix[i].size();j++)
-            cout<<matrix[i][j]<<" ";
-        cout<<endl;}
-}
-
-vector<int> fromMatrToArr(const vector<vector<int>> &matrix)
-{
-    vector<int> arr;
-    for(size_t i = 0;i<matrix.size();i++)
-        for(size_t j = 0;j<matrix[i].size();j++)
-            arr.push_back(matrix[i][j]);
-    return arr;
-}
-
-vector<vector<int>> matrixGeneator()
-{
-    vector<int> nums = {1,2,3,4,5,6,7,8,0};
-    int num ,ind;
-    srand(time(nullptr));
-    vector<vector<int>> res(3,vector<int> (3));
-    for(int i = 0;i<3;i++)
-    {
-        for(int j = 0;j<3;j++)
-        {
-            num = rand() % 9;
-            while(find(nums.begin(), nums.end(), num) == nums.end() || num ==-1 )
-                num = rand() % 9;
-            ind = find(nums.begin(),nums.end(),num) - nums.begin();
-            nums[ind] = -1;
-            res[i][j]=num;
-        }
-    }
-    return res;
-}
-
-void arrOut(const vector<int> &arr )
-{
-    cout<<endl;
-    for(size_t i=0;i<arr.size();i++)
-        cout<<arr[i]<<" ";
-    cout<<endl;
-}
-
-bool matrixValidator(const vector<vector<int>> &matrix)
-{
-    vector<int> arr = fromMatrToArr(matrix);
-    if(numberOfInversions(arr)%2==0)
-        return true;
-    else
-        return false;
-}
-
-int numberOfInversions(const vector<int> &arr)
-{
-    int inv=0;
-    for(size_t i = 0;i<arr.size()-1;i++)
-
-        for(size_t j = i+1;j<arr.size();j++)
-
-            if (arr[j] && arr[i] && arr[i] > arr[j]) inv++;
-
-    return inv;
-}
 
 bool node::canLeft(int &gap) {return gap!=0 && gap!=3 && gap!=6;}
 bool node::canRight(int &gap) {return gap!=2 && gap!=5 && gap!=8;}
@@ -297,13 +222,17 @@ vector<int> node::toLeft(vector<int> curState) {
     return curState;
 }
 
-int node::gapDetector(vector<int> curState) {
+int node::gapDetector(vector<int> curState)
+{
     for(size_t i = 0;i<curState.size();i++)
         if(curState[i]==0)
             return i;
+    cout<<"Your puzzle can`t be solved";
+    exit(0);
 }
 
-void node::state_out(vector<int> state) {
+void node::state_out(vector<int> state)
+{
     cout<<endl;
     for(int i : state)
         cout<<i<<" ";

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Kursach.dir/PuzzleCreation.cpp.obj"
   "CMakeFiles/Kursach.dir/main.cpp.obj"
   "Kursach.exe"
   "Kursach.exe.manifest"

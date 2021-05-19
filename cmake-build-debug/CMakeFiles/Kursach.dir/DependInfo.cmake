@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/ramp8/Kursach/PuzzleCreation.cpp" "C:/Users/ramp8/Kursach/cmake-build-debug/CMakeFiles/Kursach.dir/PuzzleCreation.cpp.obj"
   "C:/Users/ramp8/Kursach/main.cpp" "C:/Users/ramp8/Kursach/cmake-build-debug/CMakeFiles/Kursach.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/ramp8/Kursach/PuzzleCreation.h
+iostream
+-
+vector
+-
+algorithm
+-
+ctime
+-
+list
+-
+
 C:/Users/ramp8/Kursach/main.cpp
 iostream
 -
@@ -17,4 +29,6 @@ ctime
 -
 list
 -
+PuzzleCreation.h
+C:/Users/ramp8/Kursach/PuzzleCreation.h
 

@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/ramp8/Kursach/PuzzleCreation.cpp">
+			<Option target="Kursach"/>
+		</Unit>
+		<Unit filename="C:/Users/ramp8/Kursach/PuzzleCreation.h">
+			<Option target="Kursach"/>
+		</Unit>
 		<Unit filename="C:/Users/ramp8/Kursach/main.cpp">
 			<Option target="Kursach"/>
 		</Unit>

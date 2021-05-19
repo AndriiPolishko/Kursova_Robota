@@ -3,4 +3,4 @@ project(Kursach)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Kursach main.cpp)
+add_executable(Kursach main.cpp PuzzleCreation.cpp PuzzleCreation.h)

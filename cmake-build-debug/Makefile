@@ -142,6 +142,33 @@ Kursach/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kursach.dir\build.make CMakeFiles/Kursach.dir/build
 .PHONY : Kursach/fast
 
+PuzzleCreation.obj: PuzzleCreation.cpp.obj
+
+.PHONY : PuzzleCreation.obj
+
+# target to build an object file
+PuzzleCreation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kursach.dir\build.make CMakeFiles/Kursach.dir/PuzzleCreation.cpp.obj
+.PHONY : PuzzleCreation.cpp.obj
+
+PuzzleCreation.i: PuzzleCreation.cpp.i
+
+.PHONY : PuzzleCreation.i
+
+# target to preprocess a source file
+PuzzleCreation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kursach.dir\build.make CMakeFiles/Kursach.dir/PuzzleCreation.cpp.i
+.PHONY : PuzzleCreation.cpp.i
+
+PuzzleCreation.s: PuzzleCreation.cpp.s
+
+.PHONY : PuzzleCreation.s
+
+# target to generate assembly for a file
+PuzzleCreation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Kursach.dir\build.make CMakeFiles/Kursach.dir/PuzzleCreation.cpp.s
+.PHONY : PuzzleCreation.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -178,6 +205,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Kursach
+	@echo ... PuzzleCreation.obj
+	@echo ... PuzzleCreation.i
+	@echo ... PuzzleCreation.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
